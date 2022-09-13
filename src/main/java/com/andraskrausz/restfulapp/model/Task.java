@@ -8,6 +8,10 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
+/**
+ * @author András Krausz
+ */
+
 @Entity
 public class Task {
     @Id
@@ -72,6 +76,12 @@ public class Task {
         this.user = user;
     }
 
+    /**
+     * Checks the dateTime of the current Task and if it is in the future it sets the status to
+     * TaskStates.PENDING, otherwise to TaskStates.DONE.
+     *
+     * @return TaskStates enum of the set state.
+     */
     public TaskStates checkAndUpdateProgress() {
         if (this.dateTime.toEpochSecond(ZoneOffset.ofHours(0)) <= LocalDateTime.now().toEpochSecond(ZoneOffset.ofHours(0))) {
             this.setStatus(TaskStates.DONE);

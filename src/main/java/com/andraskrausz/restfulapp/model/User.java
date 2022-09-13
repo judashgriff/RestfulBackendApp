@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * @author András Krausz
+ */
+
 @Entity(name = "users")
 public class User {
     @Id

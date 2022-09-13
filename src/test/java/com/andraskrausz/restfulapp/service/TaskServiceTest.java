@@ -23,9 +23,10 @@ class TaskServiceTest {
         LocalDateTime time = LocalDateTime.parse(dto.getDateTime(), FORMATTER);
         Task task = service.convertToTask(dto);
 
-        assertThat("Name").isEqualTo(task.getName());
-        assertThat(time).isEqualTo(task.getDateTime());
+        assertThat(task.getName()).isEqualTo("Name");
+        assertThat(task.getDateTime()).isEqualTo(time);
         assertThat(task.getDescription()).isNull();
-        assertThat(TaskStates.DONE).isEqualTo(task.checkAndUpdateProgress());
+        assertThat(task.checkAndUpdateProgress()).isEqualTo(TaskStates.DONE);
+        assertThat(task.getId()).isEqualTo(0L);
     }
 }

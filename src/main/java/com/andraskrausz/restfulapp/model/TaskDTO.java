@@ -2,6 +2,10 @@ package com.andraskrausz.restfulapp.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
+/**
+ * @author András Krausz
+ */
+
 public class TaskDTO {
     private String name;
     private String description;
@@ -28,6 +32,11 @@ public class TaskDTO {
         return dateTime;
     }
 
+    /**
+     * Formats the received dateTime string to the required format and sets the dateTime of the current object with it.
+     *
+     * @param dateTime a string containing a date-time
+     */
     public void setDateTime(String dateTime) {
         String[] dateAndTime = dateTime.split(" ");
         String[] dateParts = dateAndTime[0].split("-");
